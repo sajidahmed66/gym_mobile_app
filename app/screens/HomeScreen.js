@@ -1,32 +1,35 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+;
 
-import Header from '../components/Header';
+
 import Card from '../components/Card';
+
 
 
 const HomeScreen = props => {
     return (
         <View style={styles.screen} >
-            <Header />
             <View style={styles.mainContainer}>
                 <Text style={styles.title}>WELCOME MUSCLE FREAK!</Text>
                 <View styles={styles.cardContainer}>
                     <Card style={styles.card}>
                         <Text>
                             Get InTo Shape, Start Working Out
-                    </Text>
-                        <Button title="See your daily Routine" onPress={() => console.log("Worlout page re-route")} />
+                        </Text>
+                        <Button title="See your daily Routine" style={styles.btn_style} onPress={() => props.navigation.navigate('WorkOutScreen', { name: "My workout" })} />
                     </Card>
                     <Card style={styles.card}>
                         <Text>Your Dite Chart</Text>
-                        <Button title="See Daily DiteChart" onPress={() => console.log("DiteChart Page re-route")} />
+                        <Button title="See Daily DiteChart" onPress={() => props.navigation.navigate('DiteScreen')} />
                     </Card>
                 </View>
             </View>
         </View >
     )
 };
+
+
 
 const styles = StyleSheet.create({
     screen: {
@@ -60,6 +63,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         padding: 10,
         marginVertical: 10
+    }, btn_style: {
+        alignItems: 'center'
     }
 });
 

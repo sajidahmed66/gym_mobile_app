@@ -1,15 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import HomeScreen from './screens/HomeScreen';
+import Constants from 'expo-constants';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigation from './app/routes/AppNavigation';
 
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <HomeScreen />
-    </View>
+    <NavigationContainer>
+      <View style={styles.statusBar}>
+      </View>
+      <AppNavigation />
+    </NavigationContainer>
   );
 }
 
@@ -17,4 +20,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  statusBar: {
+    marginTop: Constants.statusBarHeight,
+  }
 });
+
+
+// create component like this 
+// <StoreProvider><PaperProvider><NavigationContainer><Main>
