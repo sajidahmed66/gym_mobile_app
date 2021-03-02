@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-;
+
 
 
 import Card from '../components/Card';
@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center'
     },
-    card: {
-        width: 300,
-        maxWidth: "80%"
-    },
     mainContainer: {
         flex: 1,
         flexDirection: "column",
 
+    },
+    card: {
+        width: 300,
+        maxWidth: "80%"
     },
     title: {
         padding: 15,
