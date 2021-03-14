@@ -6,12 +6,12 @@ import GymLogo from '../../assets/image/logo.png'
 const Logo = props => {
     return (
         <View style={{ ...props.style }}>
-            <TouchableOpacity onPress={() => console.log("logo pressed")}>
+            <TouchableOpacity onPress={() => { props.openDrawer() }}>
                 <Image
                     style={styles.logo}
                     source={GymLogo} />
             </TouchableOpacity>
-        </View>
+        </View >
     )
 }
 

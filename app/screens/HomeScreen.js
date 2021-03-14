@@ -8,6 +8,7 @@ import Card from '../components/Card';
 
 
 const HomeScreen = props => {
+
     return (
         <View style={styles.screen} >
             <View style={styles.mainContainer}>
@@ -17,11 +18,18 @@ const HomeScreen = props => {
                         <Text>
                             Get InTo Shape, Start Working Out
                         </Text>
-                        <Button title="See your daily Routine" style={styles.btn_style} onPress={() => props.navigation.navigate('WorkOutScreen', { name: "My workout" })} />
+                        <View style={styles.btnContainer}>
+                            <Button
+                                title="See your daily Routine"
+                                style={styles.btn_style}
+                                onPress={() => props.navigation.navigate('WorkOutScreen', { name: "My workout" })} />
+                        </View>
                     </Card>
                     <Card style={styles.card}>
                         <Text>Your Dite Chart</Text>
-                        <Button title="See Daily DiteChart" onPress={() => props.navigation.navigate('DiteScreen')} />
+                        <Button
+                            title="See Daily DiteChart"
+                            onPress={() => props.navigation.navigate('DiteScreen')} />
                     </Card>
                 </View>
             </View>
@@ -63,8 +71,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         padding: 10,
         marginVertical: 10
-    }, btn_style: {
-        alignItems: 'center'
+    },
+    btnContainer: {
+        backgroundColor: "#009387"
+    },
+    btn_style: {
+        alignItems: 'center',
+
     }
 });
 
