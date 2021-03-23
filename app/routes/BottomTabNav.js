@@ -3,8 +3,8 @@ import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 //Imports for bottom tab navigator
 import HomeStack from './HomeStack';
-import AlbumScreen from '../screens/AlbumScreen';
-import ChatScreen from '../screens/ChatScreen';
+import AlbumStackScreen from '../screens/AlbumScreen';
+import ChatScreenStack from '../screens/ChatScreen';
 
 //Icons For Botton tab Navigator
 import { Ionicons } from '@expo/vector-icons';
@@ -26,7 +26,7 @@ const BottomTabNav = (props) => {
         >
             <Tab.Screen
                 name="Chat"
-                component={ChatScreen}
+                component={ChatScreenStack}
                 options={{
                     tabBarLabel: 'Notification',
                     tabBarIcon: ({ color }) => <Ionicons name="chatbox-ellipses" size={24} color={color} />,
@@ -42,7 +42,7 @@ const BottomTabNav = (props) => {
             />
             <Tab.Screen
                 name="Album"
-                component={AlbumScreen}
+                component={AlbumStackScreen}
                 options={{
                     tabBarLabel: "Album",
                     tabBarIcon: ({ color }) => <MaterialIcons name="photo-album" size={24} color={color} />

@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flatlist: {
     },
     viewContainer: {
-        flex: 1
+        flex: 1,
     }
 });
 

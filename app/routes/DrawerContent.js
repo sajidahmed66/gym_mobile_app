@@ -60,6 +60,12 @@ const DrawerContent = props => {
                             label="Attendence"
                             onPress={() => { props.navigation.navigate('Attendence History') }}
                         />
+                        <DrawerItem
+                            icon={({ color, size }) =>
+                                <MaterialIcons name="rate-review" size={size} color={color} />}
+                            label="Review Us"
+                            onPress={() => { props.navigation.navigate('Review Us') }}
+                        />
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>

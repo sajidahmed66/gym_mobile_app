@@ -8,6 +8,7 @@ import TraineeProfileStackScreen from '../screens/leftSidMenuDrawer/TraineeProfi
 import AttendenceHistoryStack from '../screens/leftSidMenuDrawer/AttendenceHistory';
 import PaymentHistoryStack from '../screens/leftSidMenuDrawer/PaymentHistory';
 import WorkoutHistoryStack from '../screens/leftSidMenuDrawer/WorkoutHistory';
+import ReviewUsStackScreen from '../screens/leftSidMenuDrawer/ReviewUsScreen';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -21,6 +22,7 @@ const LeftSideMenu = () => {
             <DrawerStack.Screen name="Workout History" component={WorkoutHistoryStack} />
             <DrawerStack.Screen name="Payment History" component={PaymentHistoryStack} />
             <DrawerStack.Screen name="Attendence History" component={AttendenceHistoryStack} />
+            <DrawerStack.Screen name="Review Us" component={ReviewUsStackScreen} />
         </DrawerStack.Navigator>
     )
 };
