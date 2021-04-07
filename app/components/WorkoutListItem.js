@@ -22,7 +22,7 @@ const WorkOutListItem = props => {
     )
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     listItem: {
         marginVertical: 5,
         alignItems: 'center',

@@ -10,12 +10,28 @@ import {
     TouchableWithoutFeedback
 } from 'react-native';
 import GymLogo from '../../assets/image/logo.png';
+import { connect } from 'react-redux';
+import { tryLogIn } from '../redux/userLogIn/loginActionCreator';
+
+const mapStateToProps = state => {
+    return {
+        isLogedIn: state.isLogedIn
+    }
+}
+
+
+const mapDispatchToprops = dispatch => {
+    return {
+        tryLogIn: (data) => dispatch(tryLogIn(data))
+    }
+}
+
 
 const LogIn = props => {
     const [authSate, setAuthState] = useState({
         isAuth: false,
         inputs: {
-            email: "",
+            phone: "",
             password: "",
         }
     });
@@ -32,16 +48,11 @@ const LogIn = props => {
 
     //authentication 
     const handleAuth = () => {
-        // const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-        const email = authSate.inputs.email;
+        const phone = authSate.inputs.phone;
         const password = authSate.inputs.password;
-        if (email !== "" && password !== "") {
-            // if (re.test(email)) {
-            //     props.changeAuth(true)
-            // } else {
-            //     alert("Invalid Email")
-            // }
-            props.changeAuth(true);
+        if (phone !== "" && password !== "") {
+            props.tryLogIn(authSate.inputs)
+            console.log("logInScrn", props.isLogedIn)
         } else {
             alert("Input all Fields")
         }
@@ -58,8 +69,8 @@ const LogIn = props => {
                     <TextInput
                         style={styles.inputView}
                         placeholder={"Enter User Phone Number"}
-                        value={authSate.inputs.email}
-                        onChangeText={value => updateInputs(value, "email")}
+                        value={authSate.inputs.phone}
+                        onChangeText={value => updateInputs(value, "phone")}
                         keyboardType="numeric"
                         maxLength={11}
                     />
@@ -132,4 +143,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LogIn;
+export default connect(mapStateToProps, mapDispatchToprops)(LogIn);

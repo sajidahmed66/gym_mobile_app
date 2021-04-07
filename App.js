@@ -4,19 +4,23 @@ import Constants from 'expo-constants';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigation from './app/routes/AppNavigation';
 import LogIn from './app/screens/LoginScreen';
+import { Provider } from 'react-redux';
+import { store } from "./app/redux/store";
+import { navigationRef } from './app/routes/Rootnavigatioon'
 
 
 
 export default function App() {
+
   const [isLogedIn, setIsLogedIn] = useState(false);
 
-
   return (
-    <NavigationContainer>
-      <View style={styles.statusBar}>
-      </View>
-      {isLogedIn ? <AppNavigation /> : <LogIn changeAuth={setIsLogedIn} />}
-    </NavigationContainer>
+    <Provider store={store} >
+      <NavigationContainer ref={navigationRef} >
+        <View style={styles.statusBar}></View>
+        {isLogedIn ? <AppNavigation /> : <LogIn changeAuth={setIsLogedIn} />}
+      </NavigationContainer>
+    </Provider>
   );
 }
 

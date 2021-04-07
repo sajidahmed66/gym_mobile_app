@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';
 import DiteScreen from '../screens/DiteScreen';
 import WorkOutScreen from '../screens/WorkOutScreen';
+import LogIn from '../screens/LoginScreen'
 import Logo from '../components/Logo'
 
 const Stack = createStackNavigator();
@@ -24,6 +24,13 @@ const HomeStack = props => {
             headerTitleAlign: 'center',
 
         }} >
+            <Stack.Screen
+                name='logIn'
+                component={LogIn}
+                options={{
+                    headerShown: false
+                }}
+            />
             <Stack.Screen
                 name="Home"
                 component={HomeScreen}
